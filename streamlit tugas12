@@ -1,0 +1,78 @@
+import streamlit as st 
+ 
+st.write(
+    """
+    # My first app
+    Hello World, Ini Project Streamlit Saya [pizzi harmawan & 4232401004]!
+    """
+)
+import pandas as pd
+import numpy as np
+
+# =========================
+# TITLE
+# =========================
+st.title("Praktikum Pertemuan 12")
+
+# =========================
+# HEADER
+# =========================
+st.header("Dashboard Sederhana Menggunakan Streamlit")
+
+# =========================
+# SUBHEADER
+# =========================
+st.subheader("Contoh Komponen Streamlit")
+
+# =========================
+# TEXT (PARAGRAF)
+# =========================
+st.text(
+    "Aplikasi ini dibuat menggunakan Streamlit sebagai contoh web page sederhana. "
+    "Di dalamnya terdapat title, header, subheader, text, code, tabel, dan chart."
+)
+
+# =========================
+# CAPTION (opsional)
+# =========================
+st.caption("Tabel dan grafik berikut menunjukkan data nilai mahasiswa.")
+
+# =========================
+# CODE (Potongan Kode)
+# =========================
+st.subheader("Contoh Potongan Kode Python")
+st.code(
+    """
+import streamlit as st
+
+st.title("Hello Streamlit")
+st.write("Ini adalah contoh aplikasi Streamlit")
+    """,
+    language="python"
+)
+
+# =========================
+# DATAFRAME / TABLE
+# =========================
+st.subheader("Data Tabel")
+
+data = {
+    "Nama": ["pizzi", "rudi", "tasya", "gladys"],
+    "Umur": [19, 21, 22, 20],
+    "Nilai": [85, 90, 88, 92]
+}
+
+df = pd.DataFrame(data)
+st.dataframe(df)
+
+# =========================
+# CHART
+# =========================
+st.subheader("Chart Nilai Mahasiswa")
+
+chart_data = pd.DataFrame(
+    np.random.randn(10, 1),
+    columns=["Nilai"]
+)
+
+st.line_chart(chart_data)
